@@ -268,22 +268,22 @@ export default function AdminsManagement() {
                 Add Admin
               </Button>
             </DialogTrigger>
-            <DialogContent className="max-h-[85vh] flex flex-col">
+            <DialogContent className="sm:max-w-[425px]">
               <DialogHeader>
                 <DialogTitle>Create New Admin</DialogTitle>
                 <DialogDescription>
                   Add a new administrator for a division
                 </DialogDescription>
               </DialogHeader>
-              <ScrollArea className="flex-1 pr-4">
-                <form onSubmit={handleCreateAdmin} className="space-y-4">
-                  {error && (
-                    <Alert variant="destructive">
-                      <AlertCircle className="h-4 w-4" />
-                      <AlertDescription>{error}</AlertDescription>
-                    </Alert>
-                  )}
+              <form onSubmit={handleCreateAdmin} className="space-y-4">
+                {error && (
+                  <Alert variant="destructive">
+                    <AlertCircle className="h-4 w-4" />
+                    <AlertDescription>{error}</AlertDescription>
+                  </Alert>
+                )}
 
+                <div className="grid gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="fullName">Full Name</Label>
                     <Input
@@ -339,28 +339,28 @@ export default function AdminsManagement() {
                       </SelectContent>
                     </Select>
                   </div>
+                </div>
 
-                  <DialogFooter className="pt-4">
-                    <Button
-                      type="button"
-                      variant="outline"
-                      onClick={() => setIsDialogOpen(false)}
-                    >
-                      Cancel
-                    </Button>
-                    <Button type="submit" disabled={isSubmitting}>
-                      {isSubmitting ? (
-                        <>
-                          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                          Creating...
-                        </>
-                      ) : (
-                        "Create Admin"
-                      )}
-                    </Button>
-                  </DialogFooter>
-                </form>
-              </ScrollArea>
+                <DialogFooter className="gap-2 sm:gap-0">
+                  <Button
+                    type="button"
+                    variant="outline"
+                    onClick={() => setIsDialogOpen(false)}
+                  >
+                    Cancel
+                  </Button>
+                  <Button type="submit" disabled={isSubmitting}>
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        Creating...
+                      </>
+                    ) : (
+                      "Create Admin"
+                    )}
+                  </Button>
+                </DialogFooter>
+              </form>
             </DialogContent>
           </Dialog>
         </div>
